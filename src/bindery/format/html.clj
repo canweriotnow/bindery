@@ -1,14 +1,8 @@
 (ns bindery.formatters.html
   (:use hiccup.core)
-  (:require [clojure.string :as string]))
+  (:use bindery.util))
 
-(defn desym [sym]
-  (string/replace-first (str sym) #":" ""))
 
-(defn get-values-seq 
-  "Takes a set of records and returns a seq of the values only."
-  [recs ks]
-  (map #(get recs %) ks))
 
 
 (defn create-table 
