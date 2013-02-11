@@ -1,4 +1,4 @@
-(ns bindery.util
+(ns bindery.common
   (:require [clojure.string :as string]))
 
 (defn desym [sym]

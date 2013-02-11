@@ -1,6 +1,6 @@
 (ns bindery.formatters.html
   (:use hiccup.core)
-  (:use bindery.util))
+  (:use bindery.common))
 
 
 
