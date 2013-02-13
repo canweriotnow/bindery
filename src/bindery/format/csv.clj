@@ -7,7 +7,7 @@
     (map #(desym %) (keys (first resultset)))))
 
 (defn csv-data [resultset]
-  (str (string/join (get-values-seq resultset)) "\n")
+  (str (string/join (get-values-seq resultset)) "\n"))
 
 (defn build-csv [resultset]
   (let [headers (column-headers resultset)
