@@ -4,9 +4,9 @@
 
 (def test-recs [{:foo "foo" :bar "bar"} {:foo "baz" :bar "quux"}])
 
-(deftest desym-test
-  (testing "desym should make a keyword into a string without the leading :"
-    (is (= (desym :foo) "foo"))))
+(deftest keyword->string-test
+  (testing "keyword->string should make a keyword into a string without the leading :"
+    (is (= (keyword->string :foo) "foo"))))
 
 (deftest get-column-keys-test
   (testing "get-column-keys should return a vector of the keys in the first record in a set"

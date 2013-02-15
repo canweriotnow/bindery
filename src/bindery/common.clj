@@ -1,7 +1,7 @@
 (ns bindery.common
   (:require [clojure.string :as string]))
 
-(defn desym [sym]
+(defn keyword->string [sym]
   (string/replace-first (str sym) #":" ""))
 
 (defn get-column-keys [recs]

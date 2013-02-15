@@ -4,10 +4,10 @@
 
 (defn column-headers [resultset]
   (string/join ","
-    (map #(desym %) (keys (first resultset)))))
+    (map #(keyword->string %) (keys (first resultset)))))
 
 (defn csv-data [resultset]
-  (str (string/join (get-values-seq resultset)) "\n"))
+  (str (string/join "\n" (map #(string/join "," %) (map get-values-seq resultset)))))
 
 (defn build-csv [resultset]
   (let [headers (column-headers resultset)

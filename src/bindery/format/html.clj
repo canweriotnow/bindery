@@ -15,7 +15,7 @@
         [:thead {:style "border: 2px solid black; background-color: #aaa;"}
           [:tr
             (for [k column-keys]
-              [:th (desym k)])]]
+              [:th (keyword->string k)])]]
         [:tbody
           (for [r records]
             [:tr
