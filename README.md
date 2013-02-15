@@ -4,6 +4,14 @@
 
 A Clojure library designed to format reports from structured data. bindery expects a vector of maps like you'd get back from a JDBC query, so... that's a good primary use case. Others might follow.
 
+## Installation
+
+Leiningen
+
+```clojure
+[bindery "0.1.0-SNAPSHOT"]
+```
+
 ## Usage
 
 FIXME

@@ -20,3 +20,8 @@
         data (csv-data resultset)]
     (str headers "\n" data)))
 
+(defn create-csv-file [resultset filename]
+  (let [data (build-csv resultset)
+        file filename]
+    (spit file data)))
+
