@@ -1,5 +1,6 @@
 (ns bindery.common
-  (:require [clojure.string :as string]))
+  (:require [clojure.string :as string])
+  (:require [clojure.walk :as walk]))
 
 (defn keyword->string [sym]
   (string/replace-first (str sym) #":" ""))
@@ -14,5 +15,16 @@
   "Takes a set of records and returns a seq of the values only."
   [rec]
   (let [column-keys (get-column-keys rec)]
-    (map #(get rec %) column-keys)))
-  
+    (-> (map #(get rec %) column-keys) vec)))
+
+(defn keys->column-headers [recs]
+  (-> (keys (walk/stringify-keys (first recs))) vec))
+
+(defn data->nested-vec [data]
+  (-> 
+    (cons 
+      (keys->column-headers data)
+      (map get-values-seq data)) vec))
+
+(defn ffs [words]
+  )
