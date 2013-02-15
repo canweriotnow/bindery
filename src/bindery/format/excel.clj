@@ -2,7 +2,9 @@
   (:use dk.ative.docjure.spreadsheet)
   (:use bindery.common))
 
-(defn create-xlsx [wb-name data]
+(defn create-xlsx 
+  "Create a spreadsheet from the data. Requires a workbook name, and, the data."
+  [wb-name data]
   (let [
         wb (create-workbook wb-name
               (data->nested-vec data))
