@@ -5,19 +5,22 @@
 (defn rows->vec [recset]
   (vec (map vec (map get-values-seq recset))))
 
-(def table-template
-  (template 
-    [:table 
-      {:header $head-vector :width 50 :border true :cell-border true}
-      $rows]))
+(defn keyword->placeholder [kw]
+  (symbol (str "$" (keyword->string kw))))
+
+(defn table-template [colkeys]
+  (template (vec (map keyword->placeholder colkeys))))
 
 (defn create-table [recset]
-  (let [table table-template
-        records recset
-        colkeys (get-column-keys records)
-        head-vector (vec (map keyword->string colkeys))
-        rows (rows->vec records)]
-    (table {:head-vector head-vector :rows rows })))
+  (let [recset recset
+        colkeys (get-column-keys recset)
+        table-template (template (vec (map keyword->placeholder colkeys)))
+        head-vec (vec (map keyword->string colkeys))]
+    (pdf
+      [{}
+        (into [:table 
+          {:header head-vec }]
+          (table-template recset))] "export.pdf")))
 
 (defn gen-pdf [heading ]
   )
