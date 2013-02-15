@@ -2,11 +2,8 @@
   (:use hiccup.core)
   (:use bindery.common))
 
-
-
-
 (defn create-table 
-  "Create an html table to send to the lusers."
+  "Create an html table for inline html email."
   [records]
   (let [records records
         column-keys (get-column-keys records)]
