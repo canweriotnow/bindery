@@ -6,7 +6,7 @@
   "Create the CSV column headers"
   [resultset]
   (string/join ","
-    (map #(keyword->string %) (keys (first resultset)))))
+    (map #(name %) (keys (first resultset)))))
 
 (defn csv-data 
   "Create teh CSV (data) body"

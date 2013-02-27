@@ -2,8 +2,7 @@
   (:require [clojure.string :as string])
   (:require [clojure.walk :as walk]))
 
-(defn keyword->string [sym]
-  (string/replace-first (str sym) #":" ""))
+
 
 (defn get-column-keys [recs]
   (let [recs recs]
@@ -25,6 +24,3 @@
     (cons 
       (keys->column-headers data)
       (map get-values-seq data)) vec))
-
-(defn ffs [words]
-  )

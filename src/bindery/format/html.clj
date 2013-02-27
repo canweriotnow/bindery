@@ -12,7 +12,7 @@
         [:thead {:style "border: 2px solid black; background-color: #aaa;"}
           [:tr
             (for [k column-keys]
-              [:th (keyword->string k)])]]
+              [:th (name k)])]]
         [:tbody
           (for [r records]
             [:tr

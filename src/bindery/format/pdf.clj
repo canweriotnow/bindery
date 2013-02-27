@@ -4,7 +4,7 @@
 
 
 (defn keyword->placeholder [kw]
-  (symbol (str "$" (keyword->string kw))))
+  (symbol (str "$" (name kw))))
 
 (defn table-template [colkeys]
   (template (vec (map keyword->placeholder colkeys))))
